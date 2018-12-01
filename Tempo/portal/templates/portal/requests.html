@@ -1,0 +1,57 @@
+{% extends 'portal/base.html' %}
+{% block title %}{{ Staff }}{% endblock %}
+{% block body %}
+<div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h3>All Visit Requests</h3>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Visitor</th>
+                            <th>Approval Status</th>
+                            <th>Time in</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                       {% for visitor in visitors %}
+
+                        <tr>
+                            <td>
+                            {{visitor.visitor_name}}
+                        </td>
+                            <td>
+                                        <form action="." method="post" style="display: inline;">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="request_action" value="2"/>
+                                            <input type="hidden" name="request_id" value="{{ request.id }}"/>
+                                            <button type="submit" class="btn btn-danger btn-xs">
+                                                 <span class="glyphicon glyphicon-remove"></span>&nbsp; Approve
+                                            </button>
+                                        </form>
+                            </td>
+                            <td>{{visitor.timestamp}}</td>
+                            <td>
+                                <form action="." method="post" style="display: inline;">
+                                            {% csrf_token %}
+                                    <input type="hidden" name="request_id" value="{{ request.id }}"/>
+                                <input type="text" name="req_comment" value="{{ request.comment }}">
+                                <button type="submit" class="btn btn-success btn-xs">
+                                                <span class="glyphicon glyphicon-play"></span>&nbsp; Submit
+                                            </button> </form>
+
+                                </td>
+
+                        </tr>
+                        {%endfor%}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Tempo.iml" filepath="$PROJECT_DIR$/.idea/Tempo.iml" />
+      <module fileurl="file://$USER_HOME$/Documents/edrms/Viberr-master/.idea/Viberr-master.iml" filepath="$USER_HOME$/Documents/edrms/Viberr-master/.idea/Viberr-master.iml" />
+      <module fileurl="file://$USER_HOME$/Documents/edrms/.idea/edrms.iml" filepath="$USER_HOME$/Documents/edrms/.idea/edrms.iml" />
+    </modules>
+  </component>
+</project>

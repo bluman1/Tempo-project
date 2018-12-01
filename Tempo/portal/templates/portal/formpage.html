@@ -1,0 +1,64 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Visitor Portal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static "portal/temp.css"%}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </head>
+  <body class="">
+      {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+      <!--{#  {% for staff in all_staff %}#}-->
+                <form class="form-signin text-center" action="." method="post">
+                    <h1 class="h3 mb-3 font-weight-normal" id="label">Tempo Visitor Form </h1>
+                    {% csrf_token %}
+      
+                    {{ form.as_p }}
+      
+      
+                    <a href="#"><button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button></a>
+              <p></p>
+              <a href="#" class="badge badge-light">Need help? Click here to contact ICT</a>
+      
+                <p></p>
+            </form>
+      
+      <footer>
+      <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="https://mdbootstrap.com/bootstrap-tutorial/"> Tempo ICT</a>
+    </div>
+    </footer>
+<!--{#  {% endfor %}#}-->
+    </body>
+</html>
+
+
+
+
+
+
+
+
+  <!-- <form action="tempo.cgi" method="post">
+    <label for="visitor_name">Visitor</label>
+    <input id="visitor_name" type="text" name="visitor_name" placeholder="Visitor" required>
+    <label for="staff_name">Staff To See</label>
+    <input id="staff_name" type="text" name="staff_name" placeholder="Staff To See" required>
+    <label for="visit_type">Visit Type</label>
+    <select class="" name="">
+      <option value="">Personal</option>
+      <option value="">Official/Business</option>
+    </select>
+    <input type="submit" name="Submit" value="Submit">
+  </form> -->
